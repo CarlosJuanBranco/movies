@@ -1,4 +1,4 @@
-import { useState, useEfect } from 'react';
+import { useState, useEffect } from 'react';
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -11,7 +11,7 @@ const Home = () => {
         const res = await fetch(url);
         const data = await res.json();
 
-        console.log(data);
+        setTopMovies(data.results);
     }
 
     useEffect (() => {
@@ -21,7 +21,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div> Home </div>
+        <div> {topMovies && topMovies.map((movie) => <p> {movie.title} </p>)}  </div>
     )
 }
 
