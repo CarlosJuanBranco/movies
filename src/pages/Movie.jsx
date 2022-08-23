@@ -39,38 +39,41 @@ const Movie = () => {
         });
     };
 
-    return <div>{movie &&
-        <>
-            <MovieCard movie={movie} showLink={false} />
-            <p className="tagline">{movie.tagline}</p>
+    return <div className="movie-page">
+        {movie &&
+            <>
+                <MovieCard movie={movie} showLink={false} />
+                <p className="tagline">{movie.tagline}</p>
 
-            <div className="info">
-                <BsWallet2 /> Orçamento:
-            </div>
-            <p> {formatedCurrency(movie.budget)}</p>
+                <div className="info">
+                    <h3>
+                        <BsWallet2 /> Orçamento:
+                    </h3>
+                    <p> {formatedCurrency(movie.budget)}</p>
+                </div>
 
-            <div className="info">
-                <h3>
-                    <BsGraphUp /> Receita:
-                </h3>
-                <p>{formatedCurrency(movie.revenue)}</p>
-            </div>
+                <div className="info">
+                    <h3>
+                        <BsGraphUp /> Receita:
+                    </h3>
+                    <p>{formatedCurrency(movie.revenue)}</p>
+                </div>
 
-            <div className="info">
-                <h3>
-                    <BsHourglassSplit /> Duração:
-                </h3>
-                <p>{movie.runtime} minutos</p>
-            </div>
+                <div className="info">
+                    <h3>
+                        <BsHourglassSplit /> Duração:
+                    </h3>
+                    <p>{movie.runtime} minutos</p>
+                </div>
 
-            <div className="info description ">
-                <h3>
-                    <BsFillFileEarmarkFill /> Descrição:
-                </h3>
-                <p>{movie.overview}</p>
-            </div>
-        </>
-    }
+                <div className="info description ">
+                    <h3>
+                        <BsFillFileEarmarkFill /> Descrição:
+                    </h3>
+                    <p>{movie.overview}</p>
+                </div>
+            </>
+        }
     </div>;
 };
 
